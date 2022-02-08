@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  php-apache:
+    container_name: php8-lol
+    build: ./
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www/html
+      - ./config/jit.ini:/usr/local/etc/php/conf.d/jit.ini
+      - ./config/timezone.ini:/usr/local/etc/php/conf.d/timezone.ini
+    networks:
+      - lol-network
+
+  mysql:
+        image: 'mysql/mysql-server:8.0'
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: "secret"
+            MYSQL_ROOT_HOST: "%"
+            MYSQL_DATABASE: "lol"
+            MYSQL_USER: "sena"
+            MYSQL_PASSWORD: "secret"
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        volumes:
+        #TODO:TIRAR DESSE CONFIG DB
+             - "./src/config/db:/var/lib/mysql"
+        networks:
+             - lol-network
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-p secret"]
+            retries: 3
+            timeout: 5s
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - lol-network
+  
+networks: 
+  lol-network:
+    driver: bridge

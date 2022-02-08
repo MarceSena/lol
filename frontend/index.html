@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+    <title>Desafio, lol!</title>
+</head>
+
+<body>
+
+    <div class="container">
+      
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-6">
+                <h1>Confira os Planos Telzir</h1>
+                
+                <h4>
+                    Escolha seu local de origin e o destino para a sua ligação,
+                    para ficar por dentro de nossos preços
+                </h4>
+
+                <form>
+                    <div class="form-group m-3">
+                        <select id='select-origin' class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected>Escolha o DDD de origem</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group  m-3">
+                        <select id='select-destino' class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected>Escolha o DDD de Destino</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group  m-3">
+                        <input type="number" class="form-control" id="tempo" value="30">
+                    </div>
+
+                    <div class="form-group  m-3" >
+                        <select id="plano" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option value="30">30 minutos</option>
+                            <option value="60">60 minutos</option>
+                            <option value="120">120 minutos</option>
+                        </select>
+                    </div>
+                </form>
+
+
+                <table class="table table-success table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Origin</th>
+                            <th scope="col">Destino</th>
+                            <th scope="col">Tarifa</th>
+                            <th scope="col">Tempo</th>
+                            <th scope="col">Plano</th>
+                            <th scope="col">Com FaleMais</th>
+                            <th scope="col">Sem FaleMais</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+        </div>
+    </div>
+
+
+    <!-- TODO:TIRAR DAQUI -->
+    <script>
+        $(document).ready(function () {
+            $("#select-origin").on("click", function () {
+                var value = $(this).val().toLowerCase();
+                $("#tbody tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+            $("#select-destino").on("click", function () {
+                var value = $(this).val().toLowerCase();
+                $("#tbody tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+    <!-- API -->
+    <script src="main.js"> </script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
