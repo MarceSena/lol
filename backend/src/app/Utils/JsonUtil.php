@@ -1,8 +1,8 @@
 <?
 
-namespace Utils;
+namespace App\Utils;
 
-use Utils\ConstantsUtil;
+use App\Utils\ConstantsUtil;
 use InvalidArgumentException;
 use JsonException;
 

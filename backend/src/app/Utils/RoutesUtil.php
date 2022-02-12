@@ -1,11 +1,12 @@
 <?
 
-namespace Utils;
+namespace App\Utils;
 
 use InvalidArgumentException;
 
 class RoutesUtil
 {
+    
 
     public static function getRoutes(): array
     {

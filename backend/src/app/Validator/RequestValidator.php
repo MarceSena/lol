@@ -1,8 +1,8 @@
 <?
 
-namespace Validator;
+namespace App\Validator;
 
-use Utils\ConstantsUtil;
+use App\Utils\ConstantsUtil;
 use Utils\JsonUtil;
 use Services\UsuariosService;
 use Services\DDDService;

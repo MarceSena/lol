@@ -1,10 +1,12 @@
 <?
 include '../bootstrap.php';
 
-use Validator\RequestValidator; 
-use Utils\ConstantsUtil;
-use Utils\RoutesUtil;
-use Utils\JsonUtil;
+require_once '../vendor/autoload.php';
+
+use App\Validator\RequestValidator; 
+use App\Utils\ConstantsUtil;
+use App\Utils\RoutesUtil;
+use App\Utils\JsonUtil;
 
 try {
     $requestValidator = new RequestValidator(RoutesUtil::getRoutes());

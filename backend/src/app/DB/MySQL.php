@@ -5,7 +5,7 @@ namespace DB;
 use InvalidArgumentException;
 use PDO;
 use PDOException;
-use Utils\ConstantsUtil;
+use App\Utils\ConstantsUtil;
 
 class MySQL
 {

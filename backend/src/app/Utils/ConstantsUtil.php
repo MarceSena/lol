@@ -1,6 +1,6 @@
 <?
 
-namespace Utils; 
+namespace App\Utils; 
 
 
 abstract class ConstantsUtil
