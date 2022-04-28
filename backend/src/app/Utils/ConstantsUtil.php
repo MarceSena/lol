@@ -19,7 +19,7 @@ abstract class ConstantsUtil
 
 
     /* RETORNO JSON */
-    const SUCCESS = 'sucesso';
+    const SUCCESS = 'success';
     const ERRO = 'erro';
 
     /* OUTRAS */
