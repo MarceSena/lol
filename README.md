@@ -1,6 +1,6 @@
 # SIMPLE API-TELZIR IN PHP JAVASCRIPT 
 
-### devido a naturesa "simples" desse desafio foi escolido realizar o codigo nas linguagens "puras" php e javascrip.Apenas com o propositio de demostrar dominio sobre as mesmas.
+#### devido a naturesa "simples" desse desafio foi escolido realizar o codigo nas linguagens "puras" php e javascrip. Apenas com o propositio de demostrar dominio sobre as mesmas.
 
 # telzir
 - Sistema feito em php/javascrip para calcular gastos de ligações de telefone da empresa Telzir
@@ -43,7 +43,6 @@
 - insira do scrip que se encontra na raiz do projeto 
             arquivo ddd-sql.sql
             abrar o arquivo e cole, ou importe adminer
-
 
 - No projeto entre no diretorio
             cd frontend
