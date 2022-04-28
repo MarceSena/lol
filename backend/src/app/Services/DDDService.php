@@ -1,17 +1,17 @@
 <?
 
-namespace Services;
+namespace App\Services;
 
 use InvalidArgumentException;
-use Repository\DDDRepository;
+use App\Repository\DDDRepository;
 use App\Utils\ConstantsUtil;
 
 class DDDService
 {
-    public const TABELA = 'ddd';
-    public const RECURSOS_GET = ['listar'];
+    public const TABLE = 'ddd';
+    public const RESOURCE_GET = ['getAll'];
 
-    private array $dados;
+    private array $data;
 
     /**
      * @var object|DDDRepository
@@ -20,50 +20,39 @@ class DDDService
 
     /**
      * DDDService constructor.
-     * @param array $dados
+     * @param array $data
      */
-    public function __construct($dados = [])
+    public function __construct($data = [])
     {
-        $this->dados = $dados;
+        $this->data = $data;
         $this->DDDRepository = new DDDRepository();
     }
 
-  /**
-   * @return mixed
-   */
-  public function validarGet()
-  {
-    $retorno = null;
-    $recurso = $this->dados['resource'];
-    if (in_array($recurso, self::RECURSOS_GET, true)) {
-      $retorno = $this->dados['id'] > 0 ? $this->getOneByKey() : $this->$recurso();
-    } else {
-      throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_RECURSO_INEXISTENTE);
+    /**
+     * @return mixed
+     */
+    public function validateGet()
+    {
+        $response = null;
+        $resource = $this->data['resource'];
+        if (in_array($resource, self::RESOURCE_GET, true)) {
+            $response =  $this->$resource();
+        } else {
+            throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_RESOURCE);
+        }
+
+        if ($response === null) {
+            throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_GENERIC);
+        }
+
+        return $response;
     }
-
-    if ($retorno === null) {
-      throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_GENERICO);
-    }
-
-    return $retorno;
-  }
-
 
     /**
      * @return mixed
      */
-    private function listar()
+    private function getAll()
     {
-        return $this->DDDRepository->getMySQL()->getAll(self::TABELA);
+        return $this->DDDRepository->getMySQL()->getAll(self::TABLE);
     }
-
-
-    /**
-     * @return mixed
-     */
-    private function getOneByKey()
-    {
-        return $this->DDDRepository->getMySQL()->getOneByKey(self::TABELA, $this->dados['id']);
-    }
-  
-  }
+}

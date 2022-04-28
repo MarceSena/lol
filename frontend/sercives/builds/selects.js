@@ -1,5 +1,5 @@
 function buildSelects(objeto) {
-  objeto.resposta.forEach((element) => {
+  objeto.response.forEach((element) => {
     option_origin = new Option(element.origem, [element.origem]);
     option_destiny = new Option(element.destino, [element.destino]);
     SELECT_ORIGIN.options[SELECT_ORIGIN.options.length] = option_origin;

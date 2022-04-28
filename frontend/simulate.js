@@ -65,7 +65,7 @@ function calculePercentage(valor) {
 let valor
 function gettariff(data) {
   let ddd = getAllDDD(URL);
-  ddd.resposta.forEach((element) => {
+  ddd.response.forEach((element) => {
     var obj1 = buildDataFronCompararion(element);
     if (isEquals(obj1, data)) {
       valor = element.valor

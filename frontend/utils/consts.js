@@ -1,4 +1,4 @@
-const URL = "http://localhost:8000/public/ddd/listar"
+const URL = "http://localhost:8000/public/ddd/getAll"
 const MY_TABLE = document.getElementById("table-service-body")
 const TABLE_CONSULTE_ERROR = document.getElementById("table-consulte-body-error")
 const TABLE_CONSULTE = document.getElementById("table-consulte-body")

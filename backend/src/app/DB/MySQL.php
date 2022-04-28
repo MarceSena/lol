@@ -1,6 +1,6 @@
 <?
 
-namespace DB;
+namespace App\DB;
 
 use InvalidArgumentException;
 use PDO;
@@ -26,7 +26,9 @@ class MySQL
     {
         try {
             return new PDO(
-                'mysql:host=' . HOST . '; dbname=' . BANCO . ';', USER, SENHA
+                'mysql:host=' . HOST . '; dbname=' . DATABASE . ';',
+                USER,
+                PASSWORD
             );
         } catch (PDOException $exception) {
             throw new PDOException($exception->getMessage());
@@ -34,44 +36,22 @@ class MySQL
     }
 
     /**
-     * @param $tabela
+     * @param $table
      * @return array
      */
-    public function getAll($tabela)
+    public function getAll($table)
     {
-        if ($tabela) {
-            $consulta = 'SELECT * FROM ' . $tabela;
-            $stmt = $this->db->query($consulta);
-            $registros = $stmt->fetchAll($this->db::FETCH_ASSOC);
-            if (is_array($registros) && count($registros) > 0) {
-                return $registros;
+        if ($table) {
+            $query = 'SELECT * FROM ' . $table;
+            $stmt = $this->db->query($query);
+            $records = $stmt->fetchAll($this->db::FETCH_ASSOC);
+            if (is_array($records) && count($records) > 0) {
+                return $records;
             }
         }
-        throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_SEM_RETORNO);
+        throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_NO_RETURN);
     }
-
-    /**
-     * @param $tabela
-     * @param $id
-     * @return mixed
-     */
-    public function getOneByKey($tabela, $id)
-    {
-        if ($tabela && $id) {
-            $consulta = 'SELECT * FROM ' . $tabela . ' WHERE id = :id';
-            $stmt = $this->db->prepare($consulta);
-            $stmt->bindParam(':id', $id);
-            $stmt->execute();
-            $totalRegistros = $stmt->rowCount();
-            if ($totalRegistros === 1) {
-                return $stmt->fetch($this->db::FETCH_ASSOC);
-            }
-            throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_SEM_RETORNO);
-        }
-
-        throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_ID_OBRIGATORIO);
-    }
-
+    
     /**
      * @return object|PDO
      */

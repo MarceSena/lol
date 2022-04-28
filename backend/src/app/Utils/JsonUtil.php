@@ -6,22 +6,23 @@ use App\Utils\ConstantsUtil;
 use InvalidArgumentException;
 use JsonException;
 
-class JsonUtil {
+class JsonUtil
+{
 
-    public function processarArrayParaRetornar($retorno) 
+    public function processArray($response)
     {
-        $dados = [];
-        $dados[ConstantsUtil::TIPO] = ConstantsUtil::TIPO_ERRO;
+        $data = [];
+        $data[ConstantsUtil::TYPE] = ConstantsUtil::ERRO;
 
-        if ((is_array($retorno) && count($retorno) > 0) || strlen($retorno) > 10) {
-            $dados[ConstantsUtil::TIPO] = ConstantsUtil::TIPO_SUCESSO;
-            $dados[ConstantsUtil::RESPOSTA] = $retorno;
+        if ((is_array($response) && count($response) > 0) || strlen($response) > 10) {
+            $data[ConstantsUtil::TYPE] = ConstantsUtil::SUCCESS;
+            $data[ConstantsUtil::RESPONSE] = $response;
         }
 
-        $this->retornarJson($dados);
+        $this->returnJson($data);
     }
 
-    private function retornarJson($json)
+    private function returnJson($json)
     {
         header('Content-Type: application/json');
         header('Cache-Control: no-cache, no-store, must-revalidate');
@@ -30,18 +31,15 @@ class JsonUtil {
         exit;
     }
 
-    public static function tratarCorpoRequisicaoJson()
+    public static function requestBody()
     {
         try {
             $postJson = json_decode(file_get_contents('php://input'), true, 512, JSON_THROW_ON_ERROR);
         } catch (JsonException $e) {
-            throw new InvalidArgumentException(ConstantsUtil::MSG_ERR0_JSON_VAZIO);
+            throw new InvalidArgumentException(ConstantsUtil::MSG_ERR0_JSON_EMPTY);
         }
         if (is_array($postJson) && count($postJson) > 0) {
             return $postJson;
         }
     }
-
-
-
 }

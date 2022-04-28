@@ -4,15 +4,13 @@ namespace App\Validator;
 
 use App\Utils\ConstantsUtil;
 use App\Utils\JsonUtil;
-use Services\DDDService;
+use App\Services\DDDService;
 use InvalidArgumentException;
 
 
 class RequestValidator
 {
     private array $request;
-    private array $dadosRequest;
-    private object $TokensAutorizadosRepository;
 
     const GET = 'GET';
     const DDD = 'DDD';
@@ -32,44 +30,42 @@ class RequestValidator
      */
     public function request()
     {
-        $retorno = utf8_encode(ConstantsUtil::MSG_ERRO_TIPO_ROTA);
-        if (in_array($this->request['method'], ConstantsUtil::TIPO_REQUEST, true)) {
-            $retorno = $this->direcionarRequest();
+        $response = utf8_encode(ConstantsUtil::MSG_ERRO_TYPE_ROUTE);
+        if (in_array($this->request['method'], ConstantsUtil::TYPE_REQUEST, true)) {
+            $response = $this->redirectRequest();
         }
-        return $retorno;
+        return $response;
     }
 
     /**
-     * Metodo para direcionar o tipo de Request
+     * Metodo para direcionar o TYPE de Request
      * @return array|mixed|string|null
      */
-    private function direcionarRequest()
+    private function redirectRequest()
     {
-        if ($this->request['method'] !== self::GET && $this->request['method'] !== self::DELETE) {
-            $this->dadosRequest = JsonUtil::tratarCorpoRequisicaoJson();
+        if ($this->request['method'] !== self::GET) {
+            $this->dadosRequest = JsonUtil::requestBody();
         }
-        //$this->TokensAutorizadosRepository->validarToken(getallheaders()['Authorization']);
         $method = $this->request['method'];
         return $this->$method();
     }
 
     /**
-     * Metodo para tratar os GETS
      * @return array|mixed|string
      */
     private function get()
     {
-        $retorno = utf8_encode(ConstantsUtil::MSG_ERRO_TIPO_ROTA);
-        if (in_array($this->request['route'], ConstantsUtil::TIPO_GET, true)) {
+        $response = utf8_encode(ConstantsUtil::MSG_ERRO_TYPE_ROUTE);
+        if (in_array($this->request['route'], ConstantsUtil::TYPE_GET, true)) {
             switch ($this->request['route']) {
                 case self::DDD:
                     $DDDService = new DDDService($this->request);
-                    $retorno = $DDDService->validarGet();
+                    $response = $DDDService->validateGet();
                     break;
                 default:
-                    throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_RECURSO_INEXISTENTE);
+                    throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_RESOURCE);
             }
         }
-        return $retorno;
+        return $response;
     }
 }
