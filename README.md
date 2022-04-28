@@ -31,12 +31,12 @@
 
 - No diretorio:
 
-            digite: docker-compose up -d
+            digite: docker-compose up -d --build
 
 - No seu browser entre no endereço 
             http://localhost:8080/
 
-            diigite as credencias 
+            digite as credencias 
 
             Sistema  : 	 MySQL
             Servidor :  mysql
