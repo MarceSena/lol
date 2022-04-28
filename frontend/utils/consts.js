@@ -9,3 +9,4 @@ const TIME = document.getElementById("tempo").value
 const SELECT_ORIGIN =  document.getElementById("select-origin")
 const SELECT_DESTINY = document.getElementById("select-destino")
 let error = false
+let count = 0

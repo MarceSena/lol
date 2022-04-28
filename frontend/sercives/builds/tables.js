@@ -13,11 +13,18 @@ function errorTable(error){
   TABLE_CONSULTE_ERROR.innerHTML = error  //''
 }
 
-function drawTable(data) {
+function drawTable(data, table) {
   data.forEach(element => {
     let rows = buildTable(element);
-    TABLE_CONSULTE.appendChild(rows);
+    table.appendChild(rows);
   });
 }
 
+// function drawTablePrices(){
+//   let data = getAllDDD(URL);
+//   data.response.forEach(element => {
+//     let rows = buildTable(element);
+//     MY_TABLE.appendChild(rows);
+//   });
+// }
 errorTable('Nenhuma simulação realizada!')

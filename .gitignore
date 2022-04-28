@@ -1,12 +1,4 @@
 backend/src/config/db
 .vscode
 .editorconfig
-backend/src/config/db/#ib_16384_0.dblwr
-backend/src/config/db/#ib_16384_0.dblwr
-backend/src/config/db/ibdata1
-backend/src/config/db/undo_002
-
-backend/src/config/db/#ib_16384_0.dblwr
-backend/src/config/db/ib_logfile0
-backend/src/config/db/ibdata1
-backend/src/config/db/mysql.ibd
+/backend/src/vendor

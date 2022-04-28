@@ -1,9 +1,11 @@
 $(".simulate").click(async function () {
+ 
   validation()
   if (!error) {
     if (TABLE_CONSULTE_ERROR.parentNode != null) {
       TABLE_CONSULTE_ERROR.parentNode.removeChild(TABLE_CONSULTE_ERROR);
     }
+    count +=1
 
     var origin = getOrigin()
     var destiny = getDestiny()
@@ -29,8 +31,14 @@ $(".simulate").click(async function () {
       'Com': paymentAmountWith > 0 ? paymentAmountWith : 0,
       'Sem': paymentAmountWithout
     }]
-
-    drawTable(dataTableResult)
+    
+    if(count > 5){
+      count = 0
+      alert('Número maximo de simulaçẽos exedido!')
+      document.location.reload(true);
+    }
+    
+    drawTable(dataTableResult, TABLE_CONSULTE)
   }
 })
 
