@@ -6,11 +6,9 @@ namespace App\Utils;
 abstract class ConstantsUtil
 {
     /* REQUESTS */
-    public const TIPO_REQUEST = ['GET', 'POST', 'DELETE', 'PUT'];
-    public const TIPO_GET = ['USUARIOS', 'DDD'];
-    public const TIPO_POST = ['USUARIOS'];
-    public const TIPO_DELETE = ['USUARIOS'];
-    public const TIPO_PUT = ['USUARIOS'];
+    public const TIPO_REQUEST = ['GET'];
+    public const TIPO_GET = ['DDD'];
+  
 
     /* ERROS */
     public const MSG_ERRO_TIPO_ROTA = 'Rota não permitida!';

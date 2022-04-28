@@ -35,29 +35,6 @@ class MySQL
 
     /**
      * @param $tabela
-     * @param $id
-     * @return string
-     */
-    public function delete($tabela, $id)
-    {
-        $consultaDelete = 'DELETE FROM ' . $tabela . ' WHERE id = :id';
-        if ($tabela && $id) {
-            $this->db->beginTransaction();
-            $stmt = $this->db->prepare($consultaDelete);
-            $stmt->bindParam(':id', $id);
-            $stmt->execute();
-            if ($stmt->rowCount() > 0) {
-                $this->db->commit();
-                return ConstantsUtil::MSG_DELETADO_SUCESSO;
-            }
-            $this->db->rollBack();
-            throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_SEM_RETORNO);
-        }
-        throw new InvalidArgumentException(ConstantsUtil::MSG_ERRO_GENERICO);
-    }
-
-    /**
-     * @param $tabela
      * @return array
      */
     public function getAll($tabela)

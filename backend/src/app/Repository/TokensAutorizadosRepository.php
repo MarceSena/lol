@@ -4,7 +4,7 @@ namespace Repository;
 
 use DB\MySQL;
 use InvalidArgumentException;
-use Utils\ConstantsUtil;
+use App\Utils\ConstantsUtil;
 
 class TokensAutorizadosRepository
 {

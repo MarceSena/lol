@@ -1,0 +1,90 @@
+#home-banner{
+	background: url('../assets/wallpaper.jpg') no-repeat;
+	background-size: cover;
+  height:650px;
+	min-height: 650px;
+  position: relative;
+  opacity: 0.85;   
+}
+
+.banner-info{
+padding-top: 190px;
+}
+
+.banner-logo img{
+display: inline-block;
+}
+
+.banner-text h1{
+font-weight: bold;
+text-shadow: 0.1em 0.1em 0.05em rgb(0, 0, 0);
+font-size: 40px;
+text-transform: uppercase;
+padding-bottom:15px;
+}
+
+.banner-text p{
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-bottom:15px;
+}
+
+#cards-plans{
+  background-color: rgb(208, 213, 217);
+  height: 600px;
+} 
+
+.card {
+  height: 400px;
+}
+
+.card .card-header {
+  height: 250px;
+}
+
+.card .card-header h5 {
+  padding-top: 100px;
+}
+
+.card .card-body {
+  height: 150px;
+}
+
+.card p {
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+
+.card:hover {
+  background-color: rgb(52, 52, 54) !important;
+ 
+}
+
+.card:hover .card-header {
+  background-color: rgb(78, 78, 82) !important;
+}
+
+.card:hover p {
+  color: white;
+}
+
+.card:hover h5 {
+  color: white;
+}
+
+.card:hover h3 {
+  color: white;
+}
+
+
+#table-service{
+  height: 500px;
+}
+
+#simule{
+  height: 600px;
+  background-color: rgb(208, 213, 217);
+}
+

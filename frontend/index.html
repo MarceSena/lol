@@ -2,111 +2,238 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- ajax -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
-
-    <title>Desafio, lol!</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="./style/style.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <title>Hello, world!</title>
 </head>
 
 <body>
-
-    <div class="container">
-      
-        <div class="row">
-            <div class="col"></div>
-            <div class="col-6">
-                <h1>Confira os Planos Telzir</h1>
-                
-                <h4>
-                    Escolha seu local de origin e o destino para a sua ligação,
-                    para ficar por dentro de nossos preços
-                </h4>
-
-                <form>
-                    <div class="form-group m-3">
-                        <select id='select-origin' class="form-select form-select-sm" aria-label=".form-select-sm example">
-                            <option selected>Escolha o DDD de origem</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group  m-3">
-                        <select id='select-destino' class="form-select form-select-sm" aria-label=".form-select-sm example">
-                            <option selected>Escolha o DDD de Destino</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group  m-3">
-                        <input type="number" class="form-control" id="tempo" value="30">
-                    </div>
-
-                    <div class="form-group  m-3" >
-                        <select id="plano" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                            <option value="30">30 minutos</option>
-                            <option value="60">60 minutos</option>
-                            <option value="120">120 minutos</option>
-                        </select>
-                    </div>
-                </form>
-
-
-                <table class="table table-success table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Origin</th>
-                            <th scope="col">Destino</th>
-                            <th scope="col">Tarifa</th>
-                            <th scope="col">Tempo</th>
-                            <th scope="col">Plano</th>
-                            <th scope="col">Com FaleMais</th>
-                            <th scope="col">Sem FaleMais</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody">
-                    </tbody>
-                </table>
-            </div>
-            <div class="col">
+  <section id="home-banner" class="home">
+    <div class="bg-color">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
+        <div class="container m-3">
+          <a class="navbar-brand" href="#">TELzir</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#cards-plans">Planos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#table-service">Entenda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#simule">Simule</a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </nav>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="banner-info">
+            <div class="banner-text text-center">
+              <h1 class="text-white">FALE DE GRAÇA!!</h1>
+              <p class="white text-white">
+                Adquira um plano, fale de graça até um determinado tempo
+                e só pague os minutos excedentes.
+              </p>
+              <small class="text-white">
+                Os minutos excedentes tem um acréscimo de 10% sobre a tarifa
+                normal do minuto.
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <section id="cards-plans">
+    <div class="container">
+      <div class="row py-lg-4">
+        <div class="col-12 mx-auto">
+          <h1 class="fw-light text-center" id="simulator-title">Nossos Planos</h1>
+        </div>  
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="card mb-3 text-center"  style="max-width: 18rem;">
+            <div class="card-header">
+              <h5 class="card-subtitle mb-2">Plano FaleMais</h5>
+              <h3 class="card-title">30 minutos</h3>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Esse plano disponibiliza 30 minutos para ligações nacionais.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="card mb-3 text-center"  style="max-width: 18rem;">
+            <div class="card-header">
+              <h5 class="card-subtitle mb-2">Plano FaleMais</h5>
+              <h3 class="card-title">30 minutos</h3>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Esse plano disponibiliza 30 minutos para ligações nacionais.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="card mb-3 text-center"  style="max-width: 18rem;">
+            <div class="card-header">
+              <h5 class="card-subtitle mb-2">Plano FaleMais</h5>
+              <h3 class="card-title">30 minutos</h3>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Esse plano disponibiliza 30 minutos para ligações nacionais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="table-service">
+    <div class="container">
+      <div class="row py-lg-4">
+        <div class="col-12 mx-auto">
+          <h1 class="fw-light text-center" id="simulator-title">Entenda nossos valores</h1>
+        </div>  
+      </div>
+     
+      <div class="row">
+        <div class="col-lg-8 col-md-12 mx-auto">
+          <table class="table table-striped result-table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">(DDD) origen</th>
+                  <th scope="col">(DDD) destino</th>
+                  <th scope="col">$/min</th>
+                </tr>
+              </thead>
+              <tbody id="table-service-body">
+              </tbody>
+            </table>
+          </div>
+      </div>
+  </section>
+
+  <section id="simule">
+    <div class="container">
+      <div class="row py-lg-4">
+        <div class="col-12 mx-auto">
+          <h1 class="fw-light text-center" id="simulator-title">Simule um plano</h1>
+        </div>  
+      </div>
+      <form class="needs-validation">
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label>Origem</label>
+              <select id='select-origin' class="custom-select" required>
+                <option selected disabled value="">Origem</option>
+              </select>
+              <div class="invalid-feedback">
+                Escolha um lugar de Origem
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm">
+            <div class="form-group">
+              <label>Destino</label>
+              <select id='select-destino' class="custom-select" required>
+                <option  selected disabled value="">Destino</option>
+              </select>
+              <div class="invalid-feedback">
+                Escolha um lugar de Destino
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <label>Tempo de ligação</label>
+            <div class="form-group">
+              <input type="number" class="form-control" id="tempo" value="30" min="1" required>
+              <div class="invalid-feedback">
+                forneça um tempo valido
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <label>Planos</label>
+            <div class="form-group">
+              <select id="plano" class="custom-select">
+                <option value="30">30 minutos</option>
+                <option value="60">60 minutos</option>
+                <option value="120">120 minutos</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 text-center">
+            <button type="button" class="btn btn-info bg-purple simulate">Simular</button>
+          </div>
+        </div>
+      </form>
     </div>
 
+    <div class="results text-center">
+      <div class="row py-lg-4">
+        <div class="col-lg-8 col-md-12 mx-auto">
+          <h1 class="fw-light">Resultados da Simulação</h1>
+          <table class="table table-striped result-table">
+            <thead>
+              <tr>
+                <th scope="col">DDD Origem</th>
+                <th scope="col">DDD Destino</th>
+                <th scope="col">Minutos</th>
+                <th scope="col">Plano</th>
+                <th scope="col">Com FaleMais</th>
+                <th scope="col">Sem FaleMais</th>
+              </tr>
+            </thead>
+            <tbody id="table-consulte-body">
+              <tr>
+                <td colspan="12" class="no-data" id="table-consulte-body-error"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 
-    <!-- TODO:TIRAR DAQUI -->
-    <script>
-        $(document).ready(function () {
-            $("#select-origin").on("click", function () {
-                var value = $(this).val().toLowerCase();
-                $("#tbody tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-
-            $("#select-destino").on("click", function () {
-                var value = $(this).val().toLowerCase();
-                $("#tbody tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
 
     <!-- API -->
+    <script src="./utils/consts.js"></script>
+    <script src="./sercives/api/connect.js"></script>
+    
+    <script src="./sercives/builds/tables.js"></script>
+   
+    
     <script src="main.js"> </script>
+    <script src="./sercives/validation.js"></script>
+    <script src="./sercives/builds/selects.js"> </script>
+    <script src="simulate.js"></script>
 
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>

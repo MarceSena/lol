@@ -18,3 +18,4 @@ RUN composer dump-autoload --no-scripts --no-dev --optimize
 
 RUN chmod -R 755 /var/www/html/ 
 
+# sudo chmod o+w ./config/db/* -R permisções msql

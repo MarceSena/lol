@@ -1,2 +1,4 @@
-backend/src/.env
-backend/src/config/db
+backend/src/config/db/*
+.vscode
+
+
