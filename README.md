@@ -57,7 +57,7 @@
 
 
 
-# utils
+# utils mas não necessário
 - Instalação do docker
             
     - Ambiente Linux
