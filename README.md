@@ -23,11 +23,15 @@
 
 - Entre no diretorio 
 
-            cd backend/src
+            cd lol/backend/src
 
 - No diretorio:
 
-            digite: docker-composer up -d
+            digite: composer install
+
+- No diretorio:
+
+            digite: docker-compose up -d
 
 - No seu browser entre no endereço 
             http://localhost:8080/
