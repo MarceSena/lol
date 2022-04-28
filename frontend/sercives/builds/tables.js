@@ -20,11 +20,10 @@ function drawTable(data, table) {
   });
 }
 
-// function drawTablePrices(){
-//   let data = getAllDDD(URL);
-//   data.response.forEach(element => {
-//     let rows = buildTable(element);
-//     MY_TABLE.appendChild(rows);
-//   });
-// }
+function drawTablePrices(){
+  let data = getAllDDD(URL);
+  drawTable(data.response,MY_TABLE )
+}
+
+drawTablePrices()
 errorTable('Nenhuma simulação realizada!')
